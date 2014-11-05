@@ -925,6 +925,9 @@ angular.module('app')
                     if(newGUID.length == 40 && newGUID.match(/^[A-Za-z0-9]+$/)) {
                         Connection.send('add_node', { 'type': 'add_guid', 'guid': newGUID });
                         console.log('Added node by GUID');
+                        Notifier.success('Success', 'GUID is valid');
+                    } else {
+                        Notifier.info('Failure', 'GUID not valid');
                     }
                     $modalInstance.dismiss('cancel');
                 };
